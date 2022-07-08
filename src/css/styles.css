@@ -96,7 +96,7 @@ svg {
     width: 100%;
 
     background-color: black;
-    border-bottom: 3px solid gold;
+    border-bottom: 1px solid gold;
 }
 
 .search-form input {
