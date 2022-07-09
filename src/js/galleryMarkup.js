@@ -17,7 +17,7 @@ function makeGallaryMarkup(searchedImages) {
               <div class="info">
                 <p class="info-item">
                 <svg>
-                  <use href="./images/symbol-defs.svg#icon-heart"></use>
+                  <use href="./images/symbol-defs.svg#icon-like"></use>
                 </svg>
                   <b>${likes}</b>
                 </p>
@@ -29,7 +29,7 @@ function makeGallaryMarkup(searchedImages) {
                 </p>
                 <p class="info-item">
                 <svg>
-                  <use href="./images/symbol-defs.svg#icon-bubble"></use>
+                  <use href="./images/symbol-defs.svg#icon-comment"></use>
                 </svg>
                   <b>${comments}</b>
                 </p>
