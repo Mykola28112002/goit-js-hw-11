@@ -6,7 +6,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { PixabayAPI } from './pixabayAPI';
-import { galleryRef, renderGallery, clearGalleryMarkup } from './galleryMarkup';
+import { gallery, renderGallery, clearGalleryMarkup } from './galleryMarkup';
 
 Notify.init({ cssAnimationStyle: 'from-right', showOnlyTheLastOne: true });
 
@@ -71,7 +71,7 @@ async function loadImages() {
       loadMoreBtn.style.display = 'block';
     }
 
-    if (galleryRef.childElementCount >= totalHits) {
+    if (gallery.childElementCount >= totalHits) {
       Notify.info("We're sorry, but you've reached the end of search results.");
       loadMoreBtn.style.display = 'none';
     }
@@ -80,7 +80,7 @@ async function loadImages() {
     lightbox.refresh();
 
     const { height: cardHeight } =
-      galleryRef.firstElementChild.getBoundingClientRect();
+      gallery.firstElementChild.getBoundingClientRect();
 
     window.scrollBy({
       top: cardHeight * 2,
@@ -127,7 +127,7 @@ function onloadingMethodBtnClick() {
     loadingMethodBtn.setAttribute('data-method', 'button');
     loadingMethodBtn.textContent = 'Use infinite scroll';
     observer.disconnect();
-    if (galleryRef.childElementCount) {
+    if (gallery.childElementCount) {
       loadMoreBtn.style.display = 'block';
     }
   }

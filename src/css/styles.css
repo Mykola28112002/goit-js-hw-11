@@ -76,7 +76,7 @@ ul {
 }
 
 .info-item svg {
-    margin-right: 0.2rem;
+    margin-right: 5px;
 }
 svg {
     fill: #fff;
@@ -87,7 +87,15 @@ svg {
 .likes {
     fill: red;
 }
-
+.views {
+    fill: aqua;
+}
+.comments {
+    fill: lightsalmon;
+}
+.downloads {
+    fill: dodgerblue;
+}
 
 .search-form {
     position: fixed;
