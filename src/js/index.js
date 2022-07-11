@@ -77,8 +77,7 @@ async function loadImages() {
     renderGallery(hits);
     lightbox.refresh();
 
-    const { height: cardHeight } =
-      gallery.firstElementChild.getBoundingClientRect();
+    const { height: cardHeight } = gallery.firstElementChild.getBoundingClientRect();
 
     window.scrollBy({
       top: cardHeight * 2,
@@ -91,7 +90,6 @@ async function loadImages() {
       loadMoreBtn.style.display = 'none';
     }
   }
-
   onFinishLoadingImages();
 }
 
@@ -99,14 +97,12 @@ function onStartLoadingImages() {
   Loading.dots();
   formRef.elements.submitBtn.disabled = true;
   formRef.elements.searchQuery.disabled = true;
-  
 }
 
 function onFinishLoadingImages() {
   Loading.remove();
   formRef.elements.submitBtn.disabled = false;
   formRef.elements.searchQuery.disabled = false;
-  
 }
 
 function onloadMoreBtnClick() {
