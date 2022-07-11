@@ -16,9 +16,6 @@ formRef.addEventListener('submit', onFormSubmit);
 const loadMoreBtn = document.querySelector('.load-more');
 loadMoreBtn.addEventListener('click', onloadMoreBtnClick);
 
-const loadingMethodBtn = document.querySelector('.loading-method');
-let loadingMoreMethod = loadingMethodBtn.getAttribute('data-method');
-loadingMethodBtn.addEventListener('click', onloadingMethodBtnClick);
 
 const observerOptions = { rootMargin: '100px', treshold: 1.0 };
 const observer = new IntersectionObserver(entries => {
@@ -66,9 +63,10 @@ async function loadImages() {
       Notify.success(`Hooray! We found ${totalHits} images.`);
     }
 
-    if (loadingMoreMethod === 'button' && hits.length < totalHits) {
+    if (loadMoreBtn && hits.length < totalHits) {
       loadMoreBtn.textContent = `Load more ${pixabayAPI.searchQuery || ''}`;
       loadMoreBtn.style.display = 'block';
+      Notify.success(`Hooray! We found ${totalHits} images.`);
     }
 
     if (gallery.childElementCount >= totalHits) {
@@ -101,36 +99,16 @@ function onStartLoadingImages() {
   Loading.dots();
   formRef.elements.submitBtn.disabled = true;
   formRef.elements.searchQuery.disabled = true;
-  loadMoreBtn.disabled = true;
+  
 }
 
 function onFinishLoadingImages() {
   Loading.remove();
   formRef.elements.submitBtn.disabled = false;
   formRef.elements.searchQuery.disabled = false;
-  loadMoreBtn.disabled = false;
+  
 }
 
 function onloadMoreBtnClick() {
   loadImages();
-}
-
-function onloadingMethodBtnClick() {
-  if (loadingMoreMethod === 'button') {
-    loadingMethodBtn.setAttribute('data-method', 'scroll');
-    loadingMethodBtn.textContent = 'Use Load more button';
-    observer.observe(document.querySelector('.scroll-guard'));
-    loadMoreBtn.style.display = 'none';
-  }
-
-  if (loadingMoreMethod === 'scroll') {
-    loadingMethodBtn.setAttribute('data-method', 'button');
-    loadingMethodBtn.textContent = 'Use infinite scroll';
-    observer.disconnect();
-    if (gallery.childElementCount) {
-      loadMoreBtn.style.display = 'block';
-    }
-  }
-
-  loadingMoreMethod = loadingMethodBtn.getAttribute('data-method');
 }
