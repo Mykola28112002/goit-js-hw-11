@@ -148,7 +148,9 @@ svg {
     background-color: gold;
     border-color: #212121;
 }
-
+.submit-button:hover svg {
+fill: #000;
+}
 
 .load-more {
     display: none;
