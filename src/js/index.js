@@ -17,6 +17,9 @@ const loadMoreBtn = document.querySelector('.load-more');
 loadMoreBtn.addEventListener('click', onloadMoreBtnClick);
 
 
+
+
+
 const observerOptions = { rootMargin: '100px', treshold: 1.0 };
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
