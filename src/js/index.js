@@ -69,7 +69,6 @@ async function loadImages() {
     if (loadMoreBtn && hits.length < totalHits) {
       loadMoreBtn.textContent = `Load more ${pixabayAPI.searchQuery || ''}`;
       loadMoreBtn.style.display = 'block';
-      Notify.success(`Hooray! We found ${totalHits} images.`);
     }
 
     if (gallery.childElementCount >= totalHits) {
